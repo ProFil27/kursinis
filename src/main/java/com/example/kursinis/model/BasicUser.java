@@ -20,6 +20,16 @@ public class BasicUser extends User{
         this.myOrders = new ArrayList<>();
         this.myReviews = new ArrayList<>();
         this.feedback = new ArrayList<>();
+
+    }
+
+    public BasicUser(String username, String password, String name, String surname, String phoneNumber, String address) {
+        super(username, password, name, surname, phoneNumber);
+        this.address = address;
+        this.myOrders = new ArrayList<>();
+        this.myReviews = new ArrayList<>();
+        this.feedback = new ArrayList<>();
+
     }
 
 

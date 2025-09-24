@@ -10,11 +10,12 @@ import java.time.LocalDate;
 public class Driver extends BasicUser{
     private LocalDate bDate;
     private String licesne;
-    private Enum vehicleType;
+    private VehicleType vehicleType;
 
-    public Driver(String username, String password, String name, String surname, String phoneNumber, boolean isAdmin, String address, LocalDate bDate) {
-        super(username, password, name, surname, phoneNumber, isAdmin, address);
+    public Driver(String username, String password, String name, String surname, String phoneNumber, String address, LocalDate bDate, String licesne, VehicleType vehicleType) {
+        super(username, password, name, surname, phoneNumber, address);
         this.bDate = bDate;
+        this.licesne = licesne;
+        this.vehicleType = vehicleType;
     }
-
 }

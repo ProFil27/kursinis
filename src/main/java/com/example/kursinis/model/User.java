@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Collection;
 
 @Getter
 @Setter
@@ -30,6 +31,14 @@ public class User {
         this.surname = surname;
         this.phoneNumber = phoneNumber;
         this.isAdmin = isAdmin;
+    }
+
+    public User(String username, String password, String name, String surname, String phoneNumber) {
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.surname = surname;
+        this.phoneNumber = phoneNumber;
     }
 }
 
