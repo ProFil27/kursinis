@@ -4,11 +4,15 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kursinis.fxControllers.LoginForm">
+<AnchorPane prefHeight="265.0" prefWidth="346.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kursinis.fxControllers.LoginForm">
    <children>
-      <TextField fx:id="usernameField" layoutX="226.0" layoutY="58.0" promptText="username" />
-      <PasswordField fx:id="passwordField" layoutX="226.0" layoutY="112.0" promptText="password" />
-      <Button fx:id="loginButton" layoutX="278.0" layoutY="187.0" mnemonicParsing="false" onAction="#validateAndLoad" text="Login" />
+      <TextField fx:id="usernameField" layoutX="100.0" layoutY="70.0" promptText="username" />
+      <PasswordField fx:id="passwordField" layoutX="100.0" layoutY="110.0" promptText="password" />
+      <Button fx:id="loginButton" layoutX="150.0" layoutY="150.0" mnemonicParsing="false" onAction="#validateAndLoad" text="Login" />
+      <Text layoutX="100.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter your login data" />
+      <Text layoutX="109.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Do not have an account?" />
+      <Button fx:id="registerButton" layoutX="145.0" layoutY="219.0" mnemonicParsing="false" onAction="#registerNewUser" text="Register" />
    </children>
 </AnchorPane>

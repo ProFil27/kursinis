@@ -15,8 +15,9 @@ public class LoginForm {
     public TextField usernameField;
     public PasswordField passwordField;
     public Button loginButton;
+    public Button registerButton;
 
-    public void validateAndLoad() throws IOException {
+  public void validateAndLoad() throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
         // surenku is lauku duomenis (login ir psw) ir tikrinu DB
