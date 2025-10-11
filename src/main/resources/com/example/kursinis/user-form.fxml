@@ -17,24 +17,32 @@
       <RadioButton fx:id="restaurantRadio" alignment="TOP_LEFT" layoutX="145.0" layoutY="35.0" mnemonicParsing="false" onAction="#disableFields" text="Restaurant" toggleGroup="$userType" />
       <RadioButton fx:id="clientRadio" alignment="TOP_LEFT" layoutX="285.0" layoutY="35.0" mnemonicParsing="false" onAction="#disableFields" text="Client" toggleGroup="$userType" />
       <RadioButton fx:id="driverRadio" alignment="TOP_LEFT" layoutX="400.0" layoutY="35.0" mnemonicParsing="false" onAction="#disableFields" text="Driver" toggleGroup="$userType" />
-      <TextField fx:id="usernameField" layoutX="45.0" layoutY="80.0" promptText="username" />
-      <PasswordField fx:id="passwordField" layoutX="45.0" layoutY="120.0" promptText="password" />
-      <PasswordField fx:id="passwordFieldTwo" layoutX="45.0" layoutY="160.0" promptText="password" />
-      <TextField fx:id="nameField" layoutX="45.0" layoutY="200.0" promptText="name" />
-      <TextField fx:id="surnameField" layoutX="45.0" layoutY="240.0" promptText="surname" />
-      <TextField fx:id="phoneNumberField" layoutX="45.0" layoutY="280.0" promptText="phone number" />
       <Button fx:id="saveButton" layoutX="280.0" layoutY="361.0" mnemonicParsing="false" onAction="#createNewUser" text="Save" />
-      <AnchorPane fx:id="driverInfoPane" layoutX="207.0" layoutY="67.0" prefHeight="157.0" prefWidth="195.0">
+      <AnchorPane fx:id="driverInfoPane" layoutX="207.0" layoutY="65.0" prefHeight="157.0" prefWidth="195.0">
          <children>
-            <DatePicker fx:id="bDateField" layoutX="14.0" layoutY="14.0" promptText="birth date" />
-            <TextField fx:id="licenseField" layoutX="14.0" layoutY="54.0" promptText="license" />
-            <TextField fx:id="vehicleTypeField" layoutX="14.0" layoutY="94.0" promptText="vehicleType" />
+            <DatePicker fx:id="bDateField" layoutX="15.0" layoutY="15.0" promptText="birth date" />
+            <TextField fx:id="licenseField" layoutX="15.0" layoutY="50.0" promptText="license" />
+            <TextField fx:id="vehicleTypeField" layoutX="15.0" layoutY="85.0" promptText="vehicleType" />
          </children>
       </AnchorPane>
-      <TextField fx:id="addressField" layoutX="45.0" layoutY="320.0" promptText="address" />
-      <AnchorPane fx:id="restaurantInfoPane" layoutX="400.0" layoutY="80.0" prefHeight="157.0" prefWidth="195.0">
+      <AnchorPane fx:id="defaultInfoPane" layoutX="14.0" layoutY="65.0" prefHeight="242.0" prefWidth="200.0">
          <children>
-            <TextField fx:id="menuField" layoutX="14.0" layoutY="2.0" promptText="Menu" />
+            <TextField fx:id="usernameField" layoutX="25.0" layoutY="15.0" promptText="username" />
+            <PasswordField fx:id="passwordField" layoutX="25.0" layoutY="50.0" promptText="password" />
+            <PasswordField fx:id="passwordFieldTwo" layoutX="25.0" layoutY="85.0" promptText="password" />
+            <TextField fx:id="nameField" layoutX="25.0" layoutY="120.0" promptText="name" />
+            <TextField fx:id="surnameField" layoutX="25.0" layoutY="155.0" promptText="surname" />
+            <TextField fx:id="phoneNumberField" layoutX="25.0" layoutY="190.0" promptText="phone number" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="restaurantInfoPane" layoutX="207.0" layoutY="65.0" prefHeight="157.0" prefWidth="195.0">
+         <children>
+            <TextField fx:id="menuField" layoutX="15.0" layoutY="15.0" promptText="Menu" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addressInfoPane" layoutX="14.0" layoutY="280.0" prefHeight="49.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="addressField" layoutX="25.0" layoutY="12.0" promptText="address" />
          </children>
       </AnchorPane>
    </children>

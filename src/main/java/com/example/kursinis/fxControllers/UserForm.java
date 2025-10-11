@@ -1,6 +1,11 @@
 package com.example.kursinis.fxControllers;
 
 import com.example.kursinis.HelloApplication;
+import com.example.kursinis.hibernateControl.GenericHibernate;
+import com.example.kursinis.model.BasicUser;
+import com.example.kursinis.model.User;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -32,30 +37,53 @@ public class UserForm {
   public TextField addressField;
   public AnchorPane restaurantInfoPane;
   public TextField menuField;
+    public AnchorPane defaultInfoPane;
+    public AnchorPane addressInfoPane;
+    private EntityManagerFactory entityManagerFactory;
+  private GenericHibernate genericHibernate;
+  public void setData(EntityManagerFactory entityManagerFactory) {
+      this.entityManagerFactory = entityManagerFactory;
+      this.genericHibernate = new GenericHibernate(entityManagerFactory);
+  }
 
   public void disableFields() {
-        if(userRadio.isSelected()) {
-            driverInfoPane.setVisible(true);
-            restaurantInfoPane.setVisible(true);
-        } else if (restaurantRadio.isSelected()) {
-            driverInfoPane.setVisible(false);
-            restaurantInfoPane.setVisible(true);
-        } else if (clientRadio.isSelected()) {
-            driverInfoPane.setVisible(false);
-            restaurantInfoPane.setVisible(false);
-        } else {
-            driverInfoPane.setVisible(true);
-            restaurantInfoPane.setVisible(false);
+      boolean isUser = userRadio.isSelected();
+      boolean isRestaurant = restaurantRadio.isSelected();
+      boolean isClient = clientRadio.isSelected();
+      boolean isDriver = driverRadio.isSelected();
 
-        }
+      defaultInfoPane.setVisible(true);
+      defaultInfoPane.setDisable(false);
+
+      addressInfoPane.setVisible(isClient || isRestaurant);
+      addressInfoPane.setDisable(!(isClient || isRestaurant));
+
+      driverInfoPane.setVisible(isDriver);
+      driverInfoPane.setDisable(!isDriver);
+
+      restaurantInfoPane.setVisible(isRestaurant);
+      restaurantInfoPane.setDisable(!isRestaurant);
     }
 
-    public void createNewUser() throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-form.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = (Stage) passwordField.getScene().getWindow();
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+    public <T> void createNewUser() {
+        if (userRadio.isSelected())
+        {
+            User user = new User(usernameField.getText(),
+                passwordField.getText(),
+                nameField.getText(),
+                surnameField.getText(),
+                phoneNumberField.getText());
+            genericHibernate.create(user);
+        } else if (clientRadio.isSelected()){
+            BasicUser basicUser = new BasicUser(usernameField.getText(),
+                passwordField.getText(),
+                nameField.getText(),
+                surnameField.getText(),
+                phoneNumberField.getText(),
+                addressField.getText());
+            genericHibernate.create(basicUser);
+
+        }
+
     }
 }
