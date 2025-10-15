@@ -3,7 +3,9 @@ package com.example.kursinis.fxControllers;
 import com.example.kursinis.HelloApplication;
 import com.example.kursinis.hibernateControl.GenericHibernate;
 import com.example.kursinis.model.BasicUser;
+import com.example.kursinis.model.Driver;
 import com.example.kursinis.model.User;
+import com.example.kursinis.model.VehicleType;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import javafx.event.ActionEvent;
@@ -81,9 +83,18 @@ public class UserForm {
                 surnameField.getText(),
                 phoneNumberField.getText(),
                 addressField.getText());
-            genericHibernate.create(basicUser);
-
+            genericHibernate.create(basicUser) ;
+        } else if (driverRadio.isSelected()) {
+            Driver driver = new Driver(usernameField.getText(),
+                    passwordField.getText(),
+                    nameField.getText(),
+                    surnameField.getText(),
+                    phoneNumberField.getText(),
+                    addressField.getText(),
+                    bDateField.getValue(),
+                    licenseField.getText(),
+                    VehicleType.valueOf(vehicleTypeField.getText()));
+            genericHibernate.create(driver);
         }
-
     }
 }
