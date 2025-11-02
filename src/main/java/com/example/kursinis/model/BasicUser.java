@@ -1,7 +1,6 @@
 package com.example.kursinis.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Transient;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,11 +16,11 @@ import java.util.List;
 @Entity
 public class BasicUser extends User{
     protected String address;
-    @Transient
+    @OneToMany(mappedBy = "buyer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     protected List<FoodOrder> myOrders;
-    @Transient
+    @OneToMany(mappedBy = "commentOwner", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     protected List<Review> myReviews;
-    @Transient
+    @OneToMany(mappedBy = "feedbackUser", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     protected List<Review> feedback;
 
     public BasicUser(String username, String password, String name, String surname, String phoneNumber, boolean isAdmin, String address) {

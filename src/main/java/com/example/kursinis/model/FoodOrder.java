@@ -1,9 +1,39 @@
 package com.example.kursinis.model;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.time.LocalDate;
 import java.util.List;
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
 public class FoodOrder {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private List<Cuisine> dishes;
+    private String name;
+    private Double price;
+    @ManyToOne
+    private BasicUser buyer;
+    @ManyToMany
+    private List<Cuisine> cuisineList;
+    @OneToOne
+    private Chat chat;
+    @ManyToOne
+    private Restaurant restaurant;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus orderStatus;
+    private LocalDate dateCreated;
+    private LocalDate dateUpdated;
 
+    @Override
+    public String toString() {
+        return name + " " + price;
+    }
 }

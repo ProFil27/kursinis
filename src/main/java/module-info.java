@@ -8,10 +8,10 @@ module com.example.kursinis {
     requires mysql.connector.j;
     requires jakarta.persistence;
 
-    //    Optional thingies
     requires org.controlsfx.controls;
     //requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
+    requires javafx.base;
 
     opens com.example.kursinis to javafx.fxml, org.hibernate.orm.core, jakarta.persistence;
     exports com.example.kursinis;

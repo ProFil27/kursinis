@@ -50,6 +50,11 @@ public class User implements Serializable {
         this.surname = surname;
         this.phoneNumber = phoneNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + " Surname: " + surname;
+    }
 }
 
 
