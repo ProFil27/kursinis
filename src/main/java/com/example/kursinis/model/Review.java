@@ -17,6 +17,8 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @ManyToOne
+    private BasicUser reviewer;
     private int rating;
     private String text;
     private LocalDate dateCreated;
